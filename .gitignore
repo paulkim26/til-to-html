@@ -173,3 +173,6 @@ dist
 
 # vscode
 .vscode/*
+
+# output files
+til/*
