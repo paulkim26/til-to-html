@@ -1,4 +1,3 @@
-import { rmdir, mkdir } from "node:fs";
 import mdToHtml from "@/mdToHtml";
 
 // Parse a markdown file
@@ -17,14 +16,6 @@ export default async function parseFile(fpath: string, outputDir: string) {
 
   // Parse markdown
   const html = mdToHtml(text, fnameWithoutExt);
-
-  // Clear existing output and create folder
-  rmdir(`./${outputDir}`, { recursive: true }, (err) => {
-    if (err) throw err;
-  });
-  mkdir(`./${outputDir}`, { recursive: true }, (err) => {
-    if (err) throw err;
-  });
 
   // Write to html file
   const htmlFname = fnameWithoutExt + ".html";

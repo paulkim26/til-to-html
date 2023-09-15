@@ -1,6 +1,7 @@
 import version from "@/options/version";
 import help from "@/options/help";
 import parseFile from "@/parseFile";
+import { rmdirSync, mkdirSync, readdirSync } from "node:fs";
 
 const OUTPUT_DIR_DEFAULT = "til";
 
@@ -40,14 +41,34 @@ const parseArguments = async (args: string[]) => {
   }
 
   if (foundTarget) {
+    const filesToProcess = [];
     const isFolder = !target.endsWith(".txt");
+
+    console.log(`Reading files...`);
+
     if (isFolder) {
       // Parse folder of text files
-      //@todo
+      const dir = target;
+      let files = readdirSync(dir).filter((file) => file.endsWith(".txt"));
+      files = files.map((file) => `${dir}/${file}`);
+
+      files.forEach((file) => filesToProcess.push(file));
     } else {
-      await parseFile(target, outputDir);
+      filesToProcess.push(target);
     }
-    console.log(`Successfully generated HTML file(s).`);
+
+    // Clear existing output and create folder
+    rmdirSync(`./${outputDir}`, { recursive: true });
+    mkdirSync(`./${outputDir}`, { recursive: true });
+
+    // Parse filesToProcess of files
+    for (const file of filesToProcess) {
+      await parseFile(file, outputDir);
+    }
+
+    console.log(
+      `Successfully generated ${filesToProcess.length} HTML file(s) to directory '${outputDir}'.`
+    );
   } else {
     throw new Error("Missing target files.");
   }
