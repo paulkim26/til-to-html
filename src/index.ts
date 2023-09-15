@@ -1,5 +1,6 @@
-import version from "./options/version";
-import help from "./options/help";
+import version from "@/options/version";
+import help from "@/options/help";
+import parseFile from "@/parseFile";
 
 const arg = Bun.argv[2];
 
@@ -14,5 +15,12 @@ switch (arg) {
     help();
     break;
   default:
-  //@todo
+    const isFolder = !arg.endsWith(".txt");
+
+    if (isFolder) {
+      // Parse folder of text files
+      //@todo
+    } else {
+      parseFile(arg);
+    }
 }
