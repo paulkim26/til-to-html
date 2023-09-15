@@ -1,14 +1,11 @@
 # til-to-html
 
-This tool converts TIL posts written in markdown into HTML pages.
+This tool converts TIL posts written in [Markdown](https://www.markdownguide.org/) into HTML pages.
 
 ## Setup
 
-### Requisites
-
-- [Bun](https://bun.sh/) v1.0.1 or higher
-
-To install dependencies:
+1. Install [Bun](https://bun.sh/) v1.0.1 (or higher).
+2. Install dependencies with:
 
 ```bash
 bun install
@@ -16,7 +13,7 @@ bun install
 
 ## Usage
 
-### Run in development mode
+### Run tool
 
 ```bash
 bun start [-h | --help] [-v | --version] [-o | --output directory] filename | directory
@@ -25,7 +22,7 @@ bun start [-h | --help] [-v | --version] [-o | --output directory] filename | di
 ### Compile executable
 
 ```bash
-bun build
+bun run build
 ```
 
 ### Run tool as executable
@@ -41,6 +38,38 @@ til-to-html [-h | --help] [-v | --version] [-o | --output directory] filename | 
 | `--version`, `-v` | Display version information.                                                                       |
 | `--help`, `-h`    | Display usage message.                                                                             |
 | `--output`, `-o`  | Set custom output directory. If ommitted, files will be output to a folder named `til`. (optional) |
+
+### Examples
+
+#### View version information
+
+```bash
+bun start -v
+```
+
+#### View usage message
+
+```bash
+bun start -h
+```
+
+#### Parse 1 file
+
+```bash
+bun start examples/til.txt
+```
+
+#### Parse a folder of files
+
+```bash
+bun start examples/dir
+```
+
+#### Parse a folder of files and output to a new directory
+
+```bash
+bun start examples/dir -o output
+```
 
 ## Additional Features
 
