@@ -4,8 +4,6 @@ export default function mdToHtml(md: string, fname: string) {
   let lines = md.split(/\r?\n/);
   const hasTitle = lines[0].length > 0 && lines[1] === "" && lines[2] === "";
 
-  console.log(lines);
-
   // Clear empty lines
   lines = lines.filter((line) => line !== "");
 
