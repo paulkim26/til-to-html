@@ -1,23 +1,28 @@
+import parseParagraph from "@/parseParagraph";
+
 // Convert markdown to html
 export default function mdToHtml(md: string, fname: string) {
-  let bodyContent = "";
-  let lines = md.split(/\r?\n/);
-  const hasTitle = lines[0].length > 0 && lines[1] === "" && lines[2] === "";
+  let bodyHtml = "";
+  let paragraphs = md.split(/\r?\n/);
+  const hasTitle =
+    paragraphs[0].length > 0 && paragraphs[1] === "" && paragraphs[2] === "";
 
-  // Clear empty lines
-  lines = lines.filter((line) => line !== "");
+  // Clear empty paragraphs
+  paragraphs = paragraphs.filter((paragraph) => paragraph !== "");
 
-  lines.forEach((line, i, arr) => {
+  paragraphs.forEach((paragraph, i) => {
     const firstLine = i === 0;
     let lineHtml = "\t";
 
+    const parsedParagraph = parseParagraph(paragraph);
+
     if (firstLine && hasTitle) {
-      lineHtml += `<h1>${line}</h1>`;
+      lineHtml += `<h1>${parsedParagraph}</h1>`;
     } else {
-      lineHtml += `<p>${line}</p>`;
+      lineHtml += `<p>${parsedParagraph}</p>`;
     }
 
-    bodyContent += `${lineHtml}\n`;
+    bodyHtml += `${lineHtml}\n`;
   });
 
   let html = "";
@@ -29,7 +34,7 @@ export default function mdToHtml(md: string, fname: string) {
   html += `\t<meta name="viewport" content="width=device-width, initial-scale=1">\n`;
   html += `</head>\n`;
   html += `<body>\n`;
-  html += `${bodyContent}`;
+  html += `${bodyHtml}`;
   html += `</body>\n`;
   html += `</html>\n`;
 

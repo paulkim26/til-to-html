@@ -2,30 +2,6 @@
 
 This tool converts [TIL](https://simonwillison.net/2022/Nov/6/what-to-blog-about/) posts written in [Markdown](https://www.markdownguide.org/) into static HTML pages.
 
-## Status
-
-This project is currently a work in progress. The following features are yet to be implemented:
-
-| Feature                                        | State         |
-| ---------------------------------------------- | ------------- |
-| Parse a single text file                       | `Complete`    |
-| Parse a folder of text files                   | `Complete`    |
-| Ability to generate standalone executable tool | `Complete`    |
-| Identify and format Markdown titles            | `Complete`    |
-| Clear out existing output folder if found      | `Complete`    |
-| `--version` option                             | `Complete`    |
-| `--help` option                                | `Complete`    |
-| `--output` option                              | `Complete`    |
-| Parse Markdown headers                         | `In Progress` |
-| Parse Markdown links                           | `In Progress` |
-| Parse Markdown styled text (i.e. bold, italic) | `In Progress` |
-| Parse Markdown blockquotes                     | `In Progress` |
-| Parse Markdown lists                           | `In Progress` |
-| Parse Markdown code blocks                     | `In Progress` |
-| Parse Markdown horizontal rules                | `In Progress` |
-
-See: https://www.markdownguide.org/basic-syntax/
-
 ## Setup
 
 1. Install [Bun](https://bun.sh/) v1.0.1 (or higher). Note: as of this version, [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) is required if running in Windows.
