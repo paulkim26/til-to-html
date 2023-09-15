@@ -1,6 +1,6 @@
 // Convert markdown to html
 export default function mdToHtml(md: string, fname: string) {
-  let body = "";
+  let bodyContent = "";
   let lines = md.split(/\r?\n/);
   const hasTitle = lines[0].length > 0 && lines[1] === "" && lines[2] === "";
 
@@ -9,8 +9,6 @@ export default function mdToHtml(md: string, fname: string) {
 
   lines.forEach((line, i, arr) => {
     const firstLine = i === 0;
-    const lastLine = i === arr.length - 1;
-
     let lineHtml = "\t";
 
     if (firstLine && hasTitle) {
@@ -19,24 +17,21 @@ export default function mdToHtml(md: string, fname: string) {
       lineHtml += `<p>${line}</p>`;
     }
 
-    if (!lastLine) {
-      lineHtml += `\n`;
-    }
-
-    body += lineHtml;
+    bodyContent += `${lineHtml}\n`;
   });
 
-  const html = `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>${fname}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-${body}
-</body>
-</html>`;
+  let html = "";
+  html += `<!doctype html>\n`;
+  html += `<html lang="en">\n`;
+  html += `<head>\n`;
+  html += `\t<meta charset="utf-8">\n`;
+  html += `\t<title>${fname}</title>\n`;
+  html += `\t<meta name="viewport" content="width=device-width, initial-scale=1">\n`;
+  html += `</head>\n`;
+  html += `<body>\n`;
+  html += `${bodyContent}`;
+  html += `</body>\n`;
+  html += `</html>\n`;
 
   return html;
 }
