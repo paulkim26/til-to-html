@@ -1,9 +1,13 @@
 import { rmdir, mkdir } from "node:fs";
+import mdToHtml from "@/mdToHtml";
 
 const FOLDER_NAME = "til";
 
 // Parse a markdown file
 export default async function parseFile(fpath: string) {
+  const fpathParts = fpath.split("/");
+  const fname = fpathParts[fpathParts.length - 1];
+  const fnameWithoutExt = fname.split(".")[0];
   let text = null;
 
   try {
@@ -14,14 +18,8 @@ export default async function parseFile(fpath: string) {
     return false;
   }
 
-  const fpathParts = fpath.split("/");
-  const fname = fpathParts[fpathParts.length - 1];
-  const fnameWithoutExt = fname.split(".")[0];
-
   // Parse markdown
-  let html = "";
-  html += "Output";
-  //@todo
+  const html = mdToHtml(text, fnameWithoutExt);
 
   // Clear existing output and create folder
   rmdir(`./${FOLDER_NAME}`, { recursive: true }, (err) => {
