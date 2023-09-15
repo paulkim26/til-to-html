@@ -28,7 +28,7 @@ See: https://www.markdownguide.org/basic-syntax/
 
 ## Setup
 
-1. Install [Bun](https://bun.sh/) v1.0.1 (or higher).
+1. Install [Bun](https://bun.sh/) v1.0.1 (or higher). Note: as of this version, [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) is required if running in Windows.
 2. Install dependencies with:
 
 ```bash
