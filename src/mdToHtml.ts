@@ -4,6 +4,8 @@ import parseParagraph from "@/parseParagraph";
 export default function mdToHtml(md: string, fname: string) {
   let bodyHtml = "";
   let paragraphs = md.split(/\r?\n/);
+  let title = fname;
+
   const hasTitle =
     paragraphs[0].length > 0 && paragraphs[1] === "" && paragraphs[2] === "";
 
@@ -18,6 +20,7 @@ export default function mdToHtml(md: string, fname: string) {
 
     if (firstLine && hasTitle) {
       lineHtml += `<h1>${parsedParagraph}</h1>`;
+      title = parsedParagraph; // Set <title> tag
     } else {
       lineHtml += `<p>${parsedParagraph}</p>`;
     }
@@ -30,7 +33,7 @@ export default function mdToHtml(md: string, fname: string) {
   html += `<html lang="en">\n`;
   html += `<head>\n`;
   html += `\t<meta charset="utf-8">\n`;
-  html += `\t<title>${fname}</title>\n`;
+  html += `\t<title>${title}</title>\n`;
   html += `\t<meta name="viewport" content="width=device-width, initial-scale=1">\n`;
   html += `</head>\n`;
   html += `<body>\n`;
