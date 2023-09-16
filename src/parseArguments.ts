@@ -65,6 +65,10 @@ export default async function parseArguments(args: string[]) {
     rmdirSync(`./${outputDir}`, { recursive: true });
     mkdirSync(`./${outputDir}`, { recursive: true });
 
+    // Copy stylesheet
+    const stylesheet = Bun.file("src/style.css");
+    await Bun.write(`./${outputDir}/style.css`, stylesheet);
+
     // Parse filesToProcess of files
     for (const file of filesToProcess) {
       await parseFile(file, outputDir);
