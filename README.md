@@ -33,11 +33,11 @@ til-to-html [-h | --help] [-v | --version] [-o | --output directory] filename | 
 
 ### Command Line Arguments
 
-| Argument          | Description                                                                                        |
-| ----------------- | -------------------------------------------------------------------------------------------------- |
-| `--version`, `-v` | Display version information.                                                                       |
-| `--help`, `-h`    | Display usage message.                                                                             |
-| `--output`, `-o`  | Set custom output directory. If ommitted, files will be output to a folder named `til`. (optional) |
+| Argument          | Description                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| `-v`, `--version` | Display version information.                                                                      |
+| `-h`, `--help`    | Display usage message.                                                                            |
+| `-o`, `--output`  | Set custom output directory. If omitted, files will be output to a folder named `til`. (optional) |
 
 ### Examples
 
