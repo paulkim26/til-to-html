@@ -16,8 +16,7 @@ export default async function help() {
   message += `\n`;
 
   message += `Arguments:\n`;
-  message += `\tTARGET\t\t\tEither a single input text file or folder to convert.`;
-  message += `\n\n`;
+  message += `\tTARGET\t\t\tEither a single .txt file or folder to convert.\n`;
 
   console.log(message);
 }

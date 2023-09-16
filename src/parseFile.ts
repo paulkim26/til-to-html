@@ -1,4 +1,4 @@
-import mdToHtml from "@/mdToHtml";
+import parseMarkdown from "@/parse-markdown";
 
 // Parse a markdown file
 export default async function parseFile(fpath: string, outputDir: string) {
@@ -15,7 +15,7 @@ export default async function parseFile(fpath: string, outputDir: string) {
   }
 
   // Parse markdown
-  const html = mdToHtml(text, fnameWithoutExt);
+  const html = parseMarkdown(text, fnameWithoutExt);
 
   // Write to html file
   const htmlFname = fnameWithoutExt + ".html";

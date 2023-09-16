@@ -1,7 +1,7 @@
-import parseParagraph from "@/parseParagraph";
+import parseBlock from "@/parse-markdown/parseBlock";
 
 // Convert markdown to html
-export default function mdToHtml(md: string, fname: string) {
+export default function parseMarkdown(md: string, fname: string) {
   let bodyHtml = "";
   let paragraphs = md.split(/\r?\n/);
   let title = fname;
@@ -14,9 +14,9 @@ export default function mdToHtml(md: string, fname: string) {
 
   paragraphs.forEach((paragraph, i) => {
     const firstLine = i === 0;
-    let lineHtml = "\t";
+    let lineHtml = "\t\t";
 
-    const parsedParagraph = parseParagraph(paragraph);
+    const parsedParagraph = parseBlock(paragraph);
 
     if (firstLine && hasTitle) {
       lineHtml += `<h1>${parsedParagraph}</h1>`;
@@ -32,12 +32,15 @@ export default function mdToHtml(md: string, fname: string) {
   html += `<!doctype html>\n`;
   html += `<html lang="en">\n`;
   html += `<head>\n`;
+  html += `\t<link rel="stylesheet" href="style.css">\n`;
   html += `\t<meta charset="utf-8">\n`;
   html += `\t<title>${title}</title>\n`;
   html += `\t<meta name="viewport" content="width=device-width, initial-scale=1">\n`;
   html += `</head>\n`;
   html += `<body>\n`;
-  html += `${bodyHtml}`;
+  html += `\t<div class="post">\n`;
+  html += bodyHtml;
+  html += `\t</div>\n`;
   html += `</body>\n`;
   html += `</html>\n`;
 
