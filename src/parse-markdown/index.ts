@@ -1,7 +1,7 @@
-import parseParagraph from "@/parseParagraph";
+import parseBlock from "@/parse-markdown/parseBlock";
 
 // Convert markdown to html
-export default function mdToHtml(md: string, fname: string) {
+export default function parseMarkdown(md: string, fname: string) {
   let bodyHtml = "";
   let paragraphs = md.split(/\r?\n/);
   let title = fname;
@@ -16,7 +16,7 @@ export default function mdToHtml(md: string, fname: string) {
     const firstLine = i === 0;
     let lineHtml = "\t\t";
 
-    const parsedParagraph = parseParagraph(paragraph);
+    const parsedParagraph = parseBlock(paragraph);
 
     if (firstLine && hasTitle) {
       lineHtml += `<h1>${parsedParagraph}</h1>`;
