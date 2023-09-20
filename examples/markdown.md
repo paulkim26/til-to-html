@@ -8,8 +8,7 @@ Run **til-to-html -h** for additional help.
 
 Run **til-to-html -v** for version information.
 
-Usage for Paths - Heading 2
--
+  ##       Usage for Paths - Heading 2
 Run **til-to-html ./examples/til.txt** to generate a single webpage.
 
 Run **til-to-html ./examples/dir** to generate multiple webpages from a folder.
