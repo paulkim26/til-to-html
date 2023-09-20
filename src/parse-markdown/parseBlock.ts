@@ -7,10 +7,10 @@ import parseHeadingTwo from "./parseHeadingTwo";
 export default function parseBlock(text: string) {
   let html = text;
 
+  html = parseHeadingTwo(html);
   html = parseLink(html);
   html = parseBold(html);
   html = parseItalics(html);
-  html = parseHeadingTwo(html);
 
   return html;
 }
