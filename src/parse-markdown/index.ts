@@ -9,6 +9,14 @@ export default function parseMarkdown(md: string, fname: string) {
   const hasTitle =
     paragraphs[0].length > 0 && paragraphs[1] === "" && paragraphs[2] === "";
 
+  // Check for alternative Heading Two syntax
+  for (let i = 1; i < paragraphs.length; i++) {
+    if (paragraphs[i].match(/^( {0,3}-+\s*)/) != null) {
+      paragraphs[i] = "";
+      paragraphs[i - 1] = `<h2>${paragraphs[i - 1]}</h2>`;
+    }
+  }
+
   // Clear empty paragraphs
   paragraphs = paragraphs.filter((paragraph) => paragraph !== "");
 
@@ -22,7 +30,11 @@ export default function parseMarkdown(md: string, fname: string) {
       lineHtml += `<h1>${parsedParagraph}</h1>`;
       title = parsedParagraph; // Set <title> tag
     } else {
-      lineHtml += `<p>${parsedParagraph}</p>`;
+      if (parsedParagraph.startsWith("<h2>") && parsedParagraph.endsWith("</h2>")) {
+        lineHtml += `${parsedParagraph}`;
+      } else {
+        lineHtml += `<p>${parsedParagraph}</p>`;
+      }
     }
 
     bodyHtml += `${lineHtml}\n`;
