@@ -10,10 +10,10 @@ export default function parseMarkdown(md: string, fname: string) {
     paragraphs[0].length > 0 && paragraphs[1] === "" && paragraphs[2] === "";
 
   // Check for alternative Heading Two syntax
-  for (let i = 1; i < paragraphs.length; i++) {
-    if (paragraphs[i].match(/^( {0,3}-+\s*)$/) != null) {
-      paragraphs[i] = "";
-      paragraphs[i - 1] = `<h2>${paragraphs[i - 1]}</h2>`;
+  for (let i = 0; i < paragraphs.length; i++) {
+    if (i < paragraphs.length - 1 && paragraphs[i + 1].match(/^( {0,3}-+\s*)$/) != null) {
+      paragraphs[i] = `${paragraphs[i]}\n${paragraphs[i + 1]}`;
+      paragraphs[i + 1] = "";
     }
   }
 
