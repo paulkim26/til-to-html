@@ -1,6 +1,6 @@
 # til-to-html
 
-This tool converts [TIL](https://simonwillison.net/2022/Nov/6/what-to-blog-about/) posts written in [Markdown](https://www.markdownguide.org/) into static HTML pages.
+This tool converts [TIL](https://simonwillison.net/2022/Nov/6/what-to-blog-about/) posts written in [Markdown](https://www.markdownguide.org/) (.txt, .md) into static HTML pages.
 
 ## Setup
 
