@@ -11,7 +11,7 @@ export default function parseMarkdown(md: string, fname: string) {
 
   // Check for alternative Heading Two syntax
   for (let i = 1; i < paragraphs.length; i++) {
-    if (paragraphs[i].match(/^( {0,3}-+\s*)/) != null) {
+    if (paragraphs[i].match(/^( {0,3}-+\s*)$/) != null) {
       paragraphs[i] = "";
       paragraphs[i - 1] = `<h2>${paragraphs[i - 1]}</h2>`;
     }
