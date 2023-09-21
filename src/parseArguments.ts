@@ -46,14 +46,14 @@ export default async function parseArguments(args: string[]) {
 
   if (foundTarget) {
     const filesToProcess = [];
-    const isFolder = !target.endsWith(".txt");
+    const isFolder = !(target.endsWith(".txt") || target.endsWith(".md"));
 
     console.log(`Reading files...`);
 
     if (isFolder) {
       // Parse folder of text files
       const dir = target;
-      let files = readdirSync(dir).filter((file) => file.endsWith(".txt"));
+      let files = readdirSync(dir).filter((file) => file.endsWith(".txt") || file.endsWith(".md"));
       files = files.map((file) => `${dir}/${file}`);
 
       files.forEach((file) => filesToProcess.push(file));
