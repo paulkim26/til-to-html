@@ -1,9 +1,8 @@
-import getPackageInfo from "@/helpers/getPackageInfo";
+import pkg from "@root/package.json";
 
 // Prints usage message
 export default async function help() {
-  const packageInfo = await getPackageInfo();
-  const tool = packageInfo.name;
+  const tool = pkg.name;
 
   let message = "";
   message += `Usage: ${tool} [OPTIONS] [ARGUMENT]\n\n`;

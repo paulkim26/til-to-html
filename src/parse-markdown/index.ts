@@ -1,4 +1,4 @@
-import parseBlock from "@/parse-markdown/parseBlock";
+import parseBlock from "~/parse-markdown/parseBlock";
 
 // Convert markdown to html
 export default function parseMarkdown(md: string, fname: string) {
@@ -10,7 +10,7 @@ export default function parseMarkdown(md: string, fname: string) {
     paragraphs[0].length > 0 && paragraphs[1] === "" && paragraphs[2] === "";
 
   // Check for alternative Heading Two syntax
-  for (let i = 0; i < (paragraphs.length - 1); i++) {
+  for (let i = 0; i < paragraphs.length - 1; i++) {
     if (paragraphs[i + 1].match(/^( {0,3}-+\s*)$/) !== null) {
       paragraphs[i] = `${paragraphs[i]}\n${paragraphs[i + 1]}`;
       paragraphs[i + 1] = "";
@@ -30,7 +30,10 @@ export default function parseMarkdown(md: string, fname: string) {
       lineHtml += `<h1>${parsedParagraph}</h1>`;
       title = parsedParagraph; // Set <title> tag
     } else {
-      if (parsedParagraph.startsWith("<h2>") && parsedParagraph.endsWith("</h2>")) {
+      if (
+        parsedParagraph.startsWith("<h2>") &&
+        parsedParagraph.endsWith("</h2>")
+      ) {
         lineHtml += parsedParagraph;
       } else {
         lineHtml += `<p>${parsedParagraph}</p>`;

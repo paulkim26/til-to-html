@@ -1,10 +1,8 @@
-import getPackageInfo from "@/helpers/getPackageInfo";
+import pkg from "@root/package.json";
 
 // Prints the tool and version number
 export default async function version() {
-  const packageInfo = await getPackageInfo();
-
-  const tool = packageInfo.name;
-  const versionNumber = packageInfo.version;
+  const tool = pkg.name;
+  const versionNumber = pkg.version;
   console.log(`${tool} ${versionNumber}`);
 }
