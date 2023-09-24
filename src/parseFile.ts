@@ -1,4 +1,4 @@
-import parseMarkdown from "@/parse-markdown";
+import parseMarkdown from "~/parse-markdown";
 
 // Parse a markdown file
 export default async function parseFile(fpath: string, outputDir: string) {

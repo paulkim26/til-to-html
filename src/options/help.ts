@@ -1,4 +1,4 @@
-import getPackageInfo from "@/helpers/getPackageInfo";
+import getPackageInfo from "~/helpers/getPackageInfo";
 
 // Prints usage message
 export default async function help() {

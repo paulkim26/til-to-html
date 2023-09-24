@@ -1,6 +1,6 @@
-import version from "@/options/version";
-import help from "@/options/help";
-import parseFile from "@/parseFile";
+import version from "~/options/version";
+import help from "~/options/help";
+import parseFile from "~/parseFile";
 import { rmdirSync, mkdirSync, readdirSync } from "node:fs";
 
 const OUTPUT_DIR_DEFAULT = "til";
@@ -53,7 +53,9 @@ export default async function parseArguments(args: string[]) {
     if (isFolder) {
       // Parse folder of text files
       const dir = target;
-      let files = readdirSync(dir).filter((file) => file.endsWith(".txt") || file.endsWith(".md"));
+      let files = readdirSync(dir).filter(
+        (file) => file.endsWith(".txt") || file.endsWith(".md")
+      );
       files = files.map((file) => `${dir}/${file}`);
 
       files.forEach((file) => filesToProcess.push(file));

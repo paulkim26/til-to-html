@@ -1,4 +1,4 @@
-import getPackageInfo from "@/helpers/getPackageInfo";
+import getPackageInfo from "~/helpers/getPackageInfo";
 
 // Prints the tool and version number
 export default async function version() {

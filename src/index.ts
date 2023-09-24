@@ -1,4 +1,4 @@
-import parseArguments from "@/parseArguments";
+import parseArguments from "~/parseArguments";
 
 const args = Bun.argv.slice(2);
 try {
