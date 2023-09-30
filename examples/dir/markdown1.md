@@ -5,6 +5,8 @@ First Heading 2 ## Testing out
 --
 A TIL—Today I Learned—is the most liberating form of content I know of.
 
+***
+
 Did you just learn how to do something? Write about that.
 
 Call it a TIL—that way you’re not promising anyone a revelation or an in-depth tutorial. You’re saying “I just figured this out: here are my notes, you may find them useful too”.
