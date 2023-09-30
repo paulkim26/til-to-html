@@ -21,6 +21,6 @@ Second Heading 2
   -----------------------------------------
 I learned the “interact” command in pdb the other day! [Here’s my TIL](https://til.simonwillison.net/python/pdb-interact).
 
-I started publishing TILs [in April 2020](https://simonwillison.net/2020/Apr/20/self-rewriting-readme/). I’m up to 346 now, and most of them took less than 10 minutes to write. It’s such a great format for quick and satisfying online writing.
+I started publishing TILs [in April 2020](https://simonwillison.net/2020/Apr/20/self-rewriting-readme/). I’m up to **346** now, and *most of them* took less than 10 minutes to write. It’s such a great format for quick and satisfying online writing.
 
 My collection lives at https://til.simonwillison.net/—which publishes content from my [simonw/til](https://github.com/simonw/til) GitHub repository.
