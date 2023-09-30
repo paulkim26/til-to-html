@@ -42,7 +42,7 @@ export default async function parseArguments(args: string[]) {
   }
 
   if (!!target) {
-    parseTarget(target, outputDir);
+    await parseTarget(target, outputDir);
   } else {
     throw new Error("Missing target files.");
   }
