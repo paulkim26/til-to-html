@@ -1,4 +1,8 @@
-import parseBlock from "~/parse-markdown/parseBlock";
+import parseHeadingTwo from "./parseHeadingTwo";
+import parseLink from "~/parse-markdown/parseLink";
+import parseBold from "~/parse-markdown/parseBold";
+import parseItalics from "~/parse-markdown/parseItalics";
+import parseHorizontalRule from "~/parse-markdown/parseHorizontalRule";
 
 // Convert markdown to html
 export default function parseMarkdown(md: string, fname: string) {
@@ -20,27 +24,42 @@ export default function parseMarkdown(md: string, fname: string) {
   // Clear empty paragraphs
   paragraphs = paragraphs.filter((paragraph) => paragraph !== "");
 
-  paragraphs.forEach((paragraph, i) => {
+  paragraphs.forEach((md, i) => {
     const firstLine = i === 0;
-    let lineHtml = "\t\t";
+    let isBlock = false;
+    let mdParsed = md;
 
-    const parsedParagraph = parseBlock(paragraph);
+    // Check if block element
+    const headingTwo = parseHeadingTwo(mdParsed);
+    if (headingTwo !== false) {
+      mdParsed = headingTwo as string;
+      isBlock = true;
+    }
 
+    const horizontalRule = parseHorizontalRule(mdParsed);
+    if (horizontalRule !== false) {
+      mdParsed = horizontalRule as string;
+      isBlock = true;
+    }
+
+    // Check inline elements
+    mdParsed = parseLink(mdParsed);
+    mdParsed = parseBold(mdParsed);
+    mdParsed = parseItalics(mdParsed);
+
+    let html = "\t\t";
     if (firstLine && hasTitle) {
-      lineHtml += `<h1>${parsedParagraph}</h1>`;
-      title = parsedParagraph; // Set <title> tag
+      html += `<h1>${mdParsed}</h1>`;
+      title = mdParsed; // Set <title> tag
     } else {
-      if (
-        parsedParagraph.startsWith("<h2>") &&
-        parsedParagraph.endsWith("</h2>")
-      ) {
-        lineHtml += parsedParagraph;
+      if (isBlock) {
+        html += mdParsed;
       } else {
-        lineHtml += `<p>${parsedParagraph}</p>`;
+        html += `<p>${mdParsed}</p>`;
       }
     }
 
-    bodyHtml += `${lineHtml}\n`;
+    bodyHtml += `${html}\n`;
   });
 
   let html = "";

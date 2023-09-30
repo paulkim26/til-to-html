@@ -96,3 +96,4 @@ bun start examples/dir -o output
 - Parses a title from the input files. If the first line is followed by two blank lines, a `<h1>` tag will be generated in the HTML.
 - Can define a custom output directory with the `--output`/`-o` argument.
 - Program will exit with a non-zero exit code in an error occurred.
+- Add support for Markdown horizontal rules.

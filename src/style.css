@@ -35,3 +35,7 @@ a {
 .post > *:last-child {
   margin-bottom: 0px;
 }
+
+.post > hr {
+  width: 100%
+}
