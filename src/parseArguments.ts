@@ -33,7 +33,7 @@ export default async function parseArguments(args: string[]) {
         const configurationPath = args[i + 1];
         const configurationArgs = configuration(configurationPath);
         configurationParse(configurationArgs);
-        return;
+        return false;
       case "--output":
       case "-o":
 
@@ -53,6 +53,7 @@ export default async function parseArguments(args: string[]) {
   }
 
   if (!!target) {
+    console.log("TARGET:" + outputDir)
     await parseTarget(target, outputDir);
   } else {
     throw new Error("Missing target files.");
