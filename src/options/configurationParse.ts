@@ -5,7 +5,7 @@ export default async function configurationParse(tomlArgs: any) {
     try {
         // Check for version flag within the TOML config file
         if (tomlArgs.version === true) {
-            parseArguments(tomlArgs.version);
+            return parseArguments(tomlArgs.version);
         }
 
     } catch (err) {
