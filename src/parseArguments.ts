@@ -53,7 +53,7 @@ export default async function parseArguments(args: string[]) {
   }
 
   if (!!target) {
-    console.log("TARGET:" + outputDir)
+    console.log("TARGET:" + target + " & "+ outputDir)
     await parseTarget(target, outputDir);
   } else {
     throw new Error("Missing target files.");

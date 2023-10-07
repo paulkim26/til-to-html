@@ -9,6 +9,7 @@ export default async function parseTarget(target: string, outputDir: string) {
 
   if (isFolder) {
     // Parse folder of text files
+    console.log(`IS FOLDER`);
     const dir = target;
     let files = readdirSync(dir).filter(
       (file) => file.endsWith(".txt") || file.endsWith(".md")
@@ -19,7 +20,7 @@ export default async function parseTarget(target: string, outputDir: string) {
   } else {
     filesToProcess.push(target);
   }
-
+  console.log("RM:"+ outputDir)
   // Clear existing output and create folder
   rmdirSync(`./${outputDir}`, { recursive: true });
   mkdirSync(`./${outputDir}`, { recursive: true });
