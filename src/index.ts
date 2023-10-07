@@ -9,7 +9,7 @@ try{
       const configurationArgs = configuration(configurationPath);
       console.log(args[0]);
       console.log(args[1]);
-      //args = configurationParse(configurationArgs);  
+      args = configurationParse(configurationArgs);  
     }
 } catch (e: any) {
   console.error(e.message);
