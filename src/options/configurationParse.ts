@@ -1,12 +1,17 @@
 import * as fs from 'fs';
 import toml from 'toml';
 import parseArguments from '~/parseArguments';
-export default async function configurationParse(tomlArgs: any) {
+export default function configurationParse(tomlArgs: any) {
+    
     try {
+        const args: string[] = [];
         // Check for version flag within the TOML config file
-        //if (tomlArgs.version === true) {
-            return parseArguments(tomlArgs);
-        //}
+        if (tomlArgs.version === true) {
+
+            args[0]="-v";
+            parseArguments(args);
+            return;
+        }
 
     } catch (err) {
         //console.error('Error reading or parsing TOML file');

@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import toml from 'toml';
 
-export default function configuration(configurationPath) {
+export default function configuration(configurationPath: any) {
     
     if (!fs.existsSync(configurationPath)) {
         console.error('Configuration file not found:', configurationPath);
@@ -16,4 +16,5 @@ export default function configuration(configurationPath) {
         console.error('Error reading or parsing TOML file');
         process.exit(-1);
     }
+    
 }

@@ -36,7 +36,7 @@ export default async function parseArguments(args: string[]) {
         if (configurationArgs.version === true){
           console.log("HERE TOO");
         }
-        // configurationParse(configurationArgs);
+        configurationParse(configurationArgs);
         break;
       case "--output":
       case "-o":
