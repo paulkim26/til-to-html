@@ -10,14 +10,13 @@ export default async function parseArguments(args: string[]) {
   let target: string | null = null;
   let exit = false;
   let outputDir = OUTPUT_DIR_DEFAULT;
-  var i = 1;
-  console.log("PA: "+i);
-  i++;
+
   if (args.length === 0) {
     throw new Error(`Add option -h for help.`);
   }
 
   for (let i = 0; i < args.length && !exit; i++) {
+    console.log(args[i]);
     const arg = args[i];
 
     switch (arg) {
