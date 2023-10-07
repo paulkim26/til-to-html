@@ -2,17 +2,30 @@ import * as fs from 'fs';
 import toml from 'toml';
 import parseArguments from '~/parseArguments';
 export default function configurationParse(tomlArgs: any) {
-    
+    var i = 0;
     try {
         const args: string[] = [];
         // Check for version flag within the TOML config file
         if (tomlArgs.version === true) {
-            args[0]="-v";
+            args[i]="-v";
             parseArguments(args);
             return true;
         }
-        if (tomlArgs.help === true) {
-            args[0]="-h";
+        else if (tomlArgs.help === true) {
+            args[i]="-h";
+            parseArguments(args);
+            return true;
+        }
+        else {
+            if(tomlArgs.input){
+                args[i] = tomlArgs.input;
+                i++;
+            }
+            if(tomlArgs.output){
+                args[i] = tomlArgs.output;
+                i++;
+            }
+
             parseArguments(args);
             return true;
         }
