@@ -16,7 +16,7 @@ export default async function parseTarget(target: string, outputDir: string) {
     files = files.map((file) => `${dir}/${file}`);
 
     files.forEach((file) => filesToProcess.push(file));
-   
+  } else {
     filesToProcess.push(target);
   }
 
