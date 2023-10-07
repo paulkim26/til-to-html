@@ -35,6 +35,7 @@ export default async function parseArguments(args: string[]) {
         const configurationPath = args[i + 1];
         const configurationArgs = configuration(configurationPath);
         configurationParse(configurationArgs);
+        return true;
       case "--output":
       case "-o":
 
