@@ -1,8 +1,6 @@
 import version from "~/options/version";
 import help from "~/options/help";
 import parseTarget from "~/parseTarget.ts";
-import configuration from "./options/configuration";
-import configurationParse from "./options/configurationParse";
 
 const OUTPUT_DIR_DEFAULT = "til";
 
@@ -16,9 +14,6 @@ export default async function parseArguments(args: string[]) {
   }
 
   for (let i = 0; i < args.length && !exit; i++) {
-    console.log (i +": "+args[i])
-  }
-  for (let i = 0; i < args.length && !exit; i++) {
 
     const arg = args[i];
 
@@ -31,12 +26,6 @@ export default async function parseArguments(args: string[]) {
       case "-h":
         help();
         return false;
-      // case "--config":
-      // case "-c":
-      //   const configurationPath = args[i + 1];
-      //   const configurationArgs = configuration(configurationPath);
-      //   configurationParse(configurationArgs);
-      //   return true;
       case "--output":
       case "-o":
 
@@ -45,7 +34,6 @@ export default async function parseArguments(args: string[]) {
         if (finalArg) {
           throw new Error(`Option ${arg} is missing an operand.`);
         } else {
-          console.log("Output Directory: "+args[i+1]);
           outputDir = args[i + 1];
           i++; // Skip over next argument
         }
@@ -56,7 +44,6 @@ export default async function parseArguments(args: string[]) {
   }
 
   if (!!target) {
-    console.log("TARGET:" + target + " & "+ outputDir)
     await parseTarget(target, outputDir);
   } else {
     throw new Error("Missing target files.");
