@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import toml from 'toml';
 
-export default async function configuration(configurationPath: string) {
+export default function configuration(configurationPath) {
     
     if (!fs.existsSync(configurationPath)) {
         console.error('Configuration file not found:', configurationPath);

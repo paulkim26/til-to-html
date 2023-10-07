@@ -4,9 +4,9 @@ import parseArguments from '~/parseArguments';
 export default async function configurationParse(tomlArgs: any) {
     try {
         // Check for version flag within the TOML config file
-        if (tomlArgs.version === true) {
-            return parseArguments(tomlArgs.version);
-        }
+        //if (tomlArgs.version === true) {
+            return parseArguments(tomlArgs);
+        //}
 
     } catch (err) {
         //console.error('Error reading or parsing TOML file');
