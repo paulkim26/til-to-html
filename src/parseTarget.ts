@@ -9,15 +9,15 @@ export default async function parseTarget(target: string, outputDir: string) {
 
   if (isFolder) {
     // Parse folder of text files
-    console.log(`IS FOLDER`);
+    console.log(`IS FOLDER:` +target);
     const dir = target;
     let files = readdirSync(dir).filter(
       (file) => file.endsWith(".txt") || file.endsWith(".md")
     );
     files = files.map((file) => `${dir}/${file}`);
-
+    console.log(files);
     files.forEach((file) => filesToProcess.push(file));
-  } else {
+   
     filesToProcess.push(target);
   }
   console.log("RM:"+ outputDir)
