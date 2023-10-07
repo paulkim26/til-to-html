@@ -16,7 +16,7 @@ export default async function parseArguments(args: string[]) {
   }
 
   for (let i = 0; i < args.length && !exit; i++) {
-    console.log(args[i]);
+
     const arg = args[i];
 
     switch (arg) {
@@ -36,11 +36,13 @@ export default async function parseArguments(args: string[]) {
         return;
       case "--output":
       case "-o":
+
         const finalArg = i === args.length - 1;
 
         if (finalArg) {
           throw new Error(`Option ${arg} is missing an operand.`);
         } else {
+          console.log("Output Directory: "+args[i+1]);
           outputDir = args[i + 1];
           i++; // Skip over next argument
         }
