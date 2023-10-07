@@ -1,0 +1,13 @@
+#TOML configuration file
+
+# Set input directory
+input = "./examples"
+
+# Output directory where generated files will be saved
+output = "./build"
+
+#version
+version = true
+
+#help
+help = false

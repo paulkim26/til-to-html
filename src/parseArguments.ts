@@ -17,7 +17,7 @@ export default async function parseArguments(args: string[]) {
 
   for (let i = 0; i < args.length && !exit; i++) {
     const arg = args[i];
-
+    console.log(arg);
     switch (arg) {
       case "--version":
       case "-v":
