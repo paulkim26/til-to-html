@@ -7,10 +7,14 @@ export default function configurationParse(tomlArgs: any) {
         const args: string[] = [];
         // Check for version flag within the TOML config file
         if (tomlArgs.version === true) {
-
             args[0]="-v";
             parseArguments(args);
-            return;
+            return true;
+        }
+        if (tomlArgs.help === true) {
+            args[0]="-h";
+            parseArguments(args);
+            return true;
         }
 
     } catch (err) {
