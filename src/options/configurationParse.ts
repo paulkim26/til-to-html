@@ -23,8 +23,10 @@ export default function configurationParse(tomlArgs: any) {
                 i++;
             }
             if(tomlArgs.output){
+                args[i]= "-o";
+                i++;
                 args[i] = tomlArgs.output;
-                console.log("Output: " + args[i])
+                console.log("Output: " + args[i]);
                 i++;
             }
 
