@@ -14,7 +14,9 @@ export default async function parseArguments(args: string[]) {
   if (args.length === 0) {
     throw new Error(`Add option -h for help.`);
   }
-
+  for (let i = 0; i < args.length && !exit; i++) {
+    console.log (i +": "+args[i])
+  }
   for (let i = 0; i < args.length && !exit; i++) {
 
     const arg = args[i];

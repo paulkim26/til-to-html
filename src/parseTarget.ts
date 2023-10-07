@@ -31,6 +31,7 @@ export default async function parseTarget(target: string, outputDir: string) {
 
   // Parse filesToProcess of files
   for (const file of filesToProcess) {
+    console.log(file)
     await parseFile(file, outputDir);
   }
 
