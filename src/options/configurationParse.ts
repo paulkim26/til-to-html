@@ -24,6 +24,7 @@ export default function configurationParse(tomlArgs: any) {
             }
             if(tomlArgs.output){
                 args[i]= "-o";
+                console.log("Output: " + args[i]);
                 i++;
                 args[i] = tomlArgs.output;
                 console.log("Output: " + args[i]);
