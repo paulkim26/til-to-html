@@ -1,6 +1,8 @@
 import version from "~/options/version";
 import help from "~/options/help";
 import parseTarget from "~/parseTarget.ts";
+import configuration from "./options/configuration";
+import configurationParse from "./options/configurationParse";
 
 const OUTPUT_DIR_DEFAULT = "til";
 
@@ -25,6 +27,12 @@ export default async function parseArguments(args: string[]) {
       case "-h":
         help();
         return false;
+      case "--config":
+      case "-c":
+        const configurationPath = args[i + 1];
+        const configurationArgs = configuration(configurationPath);
+        configurationParse(configurationArgs);
+        break;
       case "--output":
       case "-o":
         const finalArg = i === args.length - 1;
