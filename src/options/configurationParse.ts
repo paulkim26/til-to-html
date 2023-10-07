@@ -19,10 +19,12 @@ export default function configurationParse(tomlArgs: any) {
         else {
             if(tomlArgs.input){
                 args[i] = tomlArgs.input;
+                console.log("Input: " + args[i])
                 i++;
             }
             if(tomlArgs.output){
                 args[i] = tomlArgs.output;
+                console.log("Output: " + args[i])
                 i++;
             }
 

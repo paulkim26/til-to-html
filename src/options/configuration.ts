@@ -9,12 +9,12 @@ export default function configuration(configurationPath: any) {
     }
     
     try {
-        console.log("GOt Here")
+
         const argString = fs.readFileSync(configurationPath, 'utf-8');
         return toml.parse(argString);
     } catch (err) {
         console.error('Error reading or parsing TOML file');
         process.exit(-1);
     }
-    
+
 }

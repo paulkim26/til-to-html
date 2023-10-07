@@ -10,14 +10,15 @@ export default async function parseArguments(args: string[]) {
   let target: string | null = null;
   let exit = false;
   let outputDir = OUTPUT_DIR_DEFAULT;
-
+  const i = 1;
+  console.log("PA: "+i)
   if (args.length === 0) {
     throw new Error(`Add option -h for help.`);
   }
 
   for (let i = 0; i < args.length && !exit; i++) {
     const arg = args[i];
-    console.log(arg);
+
     switch (arg) {
       case "--version":
       case "-v":
@@ -30,11 +31,7 @@ export default async function parseArguments(args: string[]) {
       case "--config":
       case "-c":
         const configurationPath = args[i + 1];
-        
         const configurationArgs = configuration(configurationPath);
-        if (configurationParse(configurationArgs)===true){
-          console.log("Config parse true")
-        }
         return;
       case "--output":
       case "-o":
