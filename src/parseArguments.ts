@@ -30,14 +30,10 @@ export default async function parseArguments(args: string[]) {
       case "--config":
       case "-c":
         const configurationPath = args[i + 1];
-        console.log("Path: " + configurationPath)
-        
+        //console.log("Path: " + configurationPath)
         const configurationArgs = configuration(configurationPath);
-        if (configurationArgs.version === true){
-          console.log("HERE TOO");
-        }
         configurationParse(configurationArgs);
-        break;
+        return;
       case "--output":
       case "-o":
         const finalArg = i === args.length - 1;
