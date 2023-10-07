@@ -7,7 +7,9 @@ try{
     if(args[0] === "-c" || args[0] === "--config"){
       const configurationPath = args[1];
       const configurationArgs = configuration(configurationPath);
-      args = configurationParse(configurationArgs);  
+      console.log(args[0]);
+      console.log(args[1]);
+      //args = configurationParse(configurationArgs);  
     }
 } catch (e: any) {
   console.error(e.message);

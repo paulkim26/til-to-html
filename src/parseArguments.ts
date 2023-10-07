@@ -31,12 +31,12 @@ export default async function parseArguments(args: string[]) {
       case "-h":
         help();
         return false;
-      case "--config":
-      case "-c":
-        const configurationPath = args[i + 1];
-        const configurationArgs = configuration(configurationPath);
-        configurationParse(configurationArgs);
-        return true;
+      // case "--config":
+      // case "-c":
+      //   const configurationPath = args[i + 1];
+      //   const configurationArgs = configuration(configurationPath);
+      //   configurationParse(configurationArgs);
+      //   return true;
       case "--output":
       case "-o":
 
