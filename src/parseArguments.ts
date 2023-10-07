@@ -10,8 +10,9 @@ export default async function parseArguments(args: string[]) {
   let target: string | null = null;
   let exit = false;
   let outputDir = OUTPUT_DIR_DEFAULT;
-  const i = 1;
-  console.log("PA: "+i)
+  var i = 1;
+  console.log("PA: "+i);
+  i++;
   if (args.length === 0) {
     throw new Error(`Add option -h for help.`);
   }
