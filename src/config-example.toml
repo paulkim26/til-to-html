@@ -1,4 +1,12 @@
-#TOML configuration file
+# TOML configuration file
+# To run til-tohtml using this config file:
+# bun start -c ./src/config-example.toml 
+
+#version
+version = false
+
+#help
+help = false
 
 # Set input directory
 input = "./examples"
@@ -6,8 +14,3 @@ input = "./examples"
 # Output directory where generated files will be saved
 output = "./build"
 
-#version
-version = false
-
-#help
-help = true
