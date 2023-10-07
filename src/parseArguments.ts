@@ -30,6 +30,7 @@ export default async function parseArguments(args: string[]) {
       case "--config":
       case "-c":
         const configurationPath = args[i + 1];
+        console.log("Path: " + configurationPath)
         const configurationArgs = configuration(configurationPath);
         configurationParse(configurationArgs);
         break;
