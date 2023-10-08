@@ -14,6 +14,7 @@ export default async function parseArguments(args: string[]) {
   }
 
   for (let i = 0; i < args.length && !exit; i++) {
+
     const arg = args[i];
 
     switch (arg) {
@@ -27,6 +28,7 @@ export default async function parseArguments(args: string[]) {
         return false;
       case "--output":
       case "-o":
+
         const finalArg = i === args.length - 1;
 
         if (finalArg) {
