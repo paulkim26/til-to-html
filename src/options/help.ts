@@ -9,9 +9,10 @@ export default async function help() {
   message += `Description: ${tool} is a tool that converts TIL Markdown posts into static HTML pages.\n\n`;
 
   message += `Options:\n`;
-  message += `\t-h, --help\t\tDisplay usage.\n`;
-  message += `\t-v, --version\t\tDisplay version.\n`;
-  message += `\t-o, --output DIRECTORY\tIndicate a custom output directory.\n`;
+  message += `\t-h, --help\t\tdisplay usage\n`;
+  message += `\t-v, --version\t\tdisplay version\n`;
+  message += `\t-o, --output DIRECTORY\tindicate custom output directory\n`;
+  message += `\t-c, --config DIRECTORY\tindicate config TOML file to use\n`;
   message += `\n`;
 
   message += `Arguments:\n`;

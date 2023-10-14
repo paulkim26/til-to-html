@@ -1,0 +1,7 @@
+# TOML sample configuration file
+
+# Set input directory
+target = "./examples/dir"
+
+# Output directory where generated files will be saved
+output = "./til"
