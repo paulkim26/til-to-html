@@ -9,6 +9,7 @@ This tool converts [TIL](https://simonwillison.net/2022/Nov/6/what-to-blog-about
 - Program will exit with a non-zero exit code in an error occurred.
 - Added support for Markdown horizontal rules.
 - Can load arguments from a `.toml` configuration file.
+- Added search field.
 
 ## Setup
 
