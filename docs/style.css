@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(56,68,76);
+  background-color: rgb(56, 68, 76);
   font-family: system-ui;
   color: white;
 }
@@ -23,6 +23,34 @@ a {
   line-height: 30px;
 }
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 25px;
+}
+
+#search-input {
+  font-size: xx-large;
+  background: transparent;
+  color: white;
+  font-family: system-ui;
+  border: white;
+  border-width: 1px;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 15px;
+}
+
+#search-input::placeholder {
+  color: white;
+  opacity: 0.2;
+}
+
 .post > h1:first-child {
   margin-top: 0px;
 }
@@ -34,4 +62,8 @@ a {
 
 .post > *:last-child {
   margin-bottom: 0px;
+}
+
+.post > hr {
+  width: 100%;
 }
