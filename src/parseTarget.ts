@@ -24,9 +24,11 @@ export default async function parseTarget(target: string, outputDir: string) {
   rmdirSync(`./${outputDir}`, { recursive: true });
   mkdirSync(`./${outputDir}`, { recursive: true });
 
-  // Copy stylesheet
-  const stylesheet = Bun.file("src/style.css");
+  // Copy website files
+  const stylesheet = Bun.file("src/website/style.css");
+  const script = Bun.file("src/website/index.js");
   await Bun.write(`./${outputDir}/style.css`, stylesheet);
+  await Bun.write(`./${outputDir}/index.js`, script);
 
   // Parse filesToProcess of files
   for (const file of filesToProcess) {

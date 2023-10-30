@@ -3,6 +3,7 @@ import parseLink from "~/parse-markdown/parseLink";
 import parseBold from "~/parse-markdown/parseBold";
 import parseItalics from "~/parse-markdown/parseItalics";
 import parseHorizontalRule from "~/parse-markdown/parseHorizontalRule";
+import searchBarHtml from "~/search/searchBarHtml";
 
 // Convert markdown to html
 export default function parseMarkdown(md: string, fname: string) {
@@ -62,6 +63,8 @@ export default function parseMarkdown(md: string, fname: string) {
     bodyHtml += `${html}\n`;
   });
 
+  const searchBar = searchBarHtml();
+
   let html = "";
   html += `<!doctype html>\n`;
   html += `<html lang="en">\n`;
@@ -69,10 +72,12 @@ export default function parseMarkdown(md: string, fname: string) {
   html += `\t<link rel="stylesheet" href="style.css">\n`;
   html += `\t<meta charset="utf-8">\n`;
   html += `\t<title>${title}</title>\n`;
+  html += `\t<script src="index.js"></script>\n`;
   html += `\t<meta name="viewport" content="width=device-width, initial-scale=1">\n`;
   html += `</head>\n`;
   html += `<body>\n`;
-  html += `\t<div class="post">\n`;
+  html += `\t${searchBar}`;
+  html += `\t<div id="post-1" class="post">\n`;
   html += bodyHtml;
   html += `\t</div>\n`;
   html += `</body>\n`;
