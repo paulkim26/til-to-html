@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "bun run src/index.ts",
-    "build": "bun build src/index.ts --compile --outfile til-to-html"
+    "build": "bun build src/index.ts --compile --outfile til-to-html",
+    "format": "bun prettier . --write",
+    "lint": "bun eslint ."
   },
   "devDependencies": {
     "bun-types": "latest"
@@ -14,6 +16,9 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
     "toml": "^3.0.0"
   }
 }

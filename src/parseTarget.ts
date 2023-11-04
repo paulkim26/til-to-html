@@ -11,7 +11,7 @@ export default async function parseTarget(target: string, outputDir: string) {
     // Parse folder of text files
     const dir = target;
     let files = readdirSync(dir).filter(
-      (file) => file.endsWith(".txt") || file.endsWith(".md")
+      (file) => file.endsWith(".txt") || file.endsWith(".md"),
     );
     files = files.map((file) => `${dir}/${file}`);
 
@@ -36,6 +36,6 @@ export default async function parseTarget(target: string, outputDir: string) {
   }
 
   console.log(
-    `Successfully generated ${filesToProcess.length} HTML file(s) to directory '${outputDir}'.`
+    `Successfully generated ${filesToProcess.length} HTML file(s) to directory '${outputDir}'.`,
   );
 }
