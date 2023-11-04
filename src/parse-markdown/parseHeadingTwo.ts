@@ -16,5 +16,5 @@ export default function parseHeadingTwo(text: string): string | boolean {
     return `<h2>${headingTwo}</h2>`;
   });
 
-  return !!changed ? html : false;
+  return changed ? html : false;
 }

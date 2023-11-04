@@ -40,17 +40,19 @@ export default async function parseArguments(args: string[]) {
         }
 
         configProvided = true;
-        const configPath = args[++i];
-        const config = await parseConfig(configPath);
+        {
+          const configPath = args[++i];
+          const config = await parseConfig(configPath);
 
-        options = {};
+          options = {};
 
-        if ("target" in config) {
-          options.target = config.target;
-        }
+          if ("target" in config) {
+            options.target = config.target;
+          }
 
-        if ("output" in config) {
-          options.output = config.output;
+          if ("output" in config) {
+            options.output = config.output;
+          }
         }
         break;
       default:

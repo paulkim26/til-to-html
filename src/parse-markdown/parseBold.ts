@@ -6,7 +6,7 @@ export default function parseBold(text: string) {
     return `<b>${boldText}</b>`;
   });
 
-  const boldPattern2 = /\_\_([^*]+)\_\_/g;
+  const boldPattern2 = /__([^*]+)__/g;
   html = html.replace(boldPattern2, (match, boldText) => {
     return `<b>${boldText}</b>`;
   });

@@ -11,35 +11,6 @@ This tool converts [TIL](https://simonwillison.net/2022/Nov/6/what-to-blog-about
 - Can load arguments from a `.toml` configuration file.
 - Added search field.
 
-## Setup
-
-### Install Bun
-
-Install [Bun](https://bun.sh/) v1.0.1 (or higher).
-
-Notes for Windows 11 users:
-
-- As of writing, [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) is required if running in Windows.
-- WSL requires that [Virtual Machine Platform](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1) is enabled.
-
-#### Install unzip
-
-Bun requires a tool called unzip.
-
-Run the following command in WSL (or alternative installation method):
-
-```bash
-sudo apt-get install unzip
-```
-
-### Install project dependencies
-
-Navigate to the application's directory and run the following command:
-
-```bash
-bun install
-```
-
 ## Usage
 
 ### Run tool
