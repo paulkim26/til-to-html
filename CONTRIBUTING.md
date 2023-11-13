@@ -43,6 +43,18 @@ This project uses [ESLint](https://eslint.org/) to find potential problems in co
 bun run lint
 ```
 
+## Testing
+
+This project uses [Bun's built-in test runner](https://bun.sh/docs/cli/test). To run it, run:
+
+```bash
+bun test
+```
+
+If you add a new module that introduces functions that return a value, please add an accompanying test module in the same directory.
+
+For example, if you add a module name `feature.ts`, please add an accompanying `feature.test.ts` with tests that encompass all potential use cases of the functions within.
+
 ## Editor Setup
 
 ### Visual Studio Code
