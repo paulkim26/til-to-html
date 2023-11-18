@@ -10,6 +10,10 @@ describe("parse bold markdown", () => {
     expect(parseBold("__test__")).toBe("<b>test</b>");
   });
 
+  test("parse multiple instances of bold", () => {
+    expect(parseBold("**bold1****bold2**")).toBe("<b>bold1</b><b>bold2</b>");
+  });
+
   test("empty string", () => {
     expect(parseBold("")).toBe("");
   });
