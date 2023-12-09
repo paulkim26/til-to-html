@@ -19,4 +19,19 @@ describe("parse link markdown", () => {
   test("empty string", () => {
     expect(parseLink("")).toBe("");
   });
+
+    test("multiple urls", () => {
+    expect(
+      parseLink("[www.example.com](Link 1)[www.example.com](Link 2)"),
+    ).toBe(
+      '<a href="Link 1">www.example.com</a><a href="Link 2">www.example.com</a>',
+    );
+  });
+
+  test("handle url with special characters", () => {
+    expect(parseLink("[www.example.com/#tag](www.example.com/#tag)")).toBe(
+      '<a href="www.example.com/#tag">www.example.com/#tag</a>',
+    );
+  });
+  
 });
